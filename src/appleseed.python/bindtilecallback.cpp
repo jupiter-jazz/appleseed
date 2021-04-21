@@ -137,7 +137,7 @@ namespace
             ScopedGILLock lock;
 
             if (bpy::override f = this->get_override("on_progressive_frame_update"))
-                f(frame, time, samples, samples_per_pixel, samples_per_second);
+                f(boost::ref(frame), time, samples, samples_per_pixel, samples_per_second);
         }
 
         // A wrapper that takes a _pointer_ to a frame, because the frame is not copyable.
